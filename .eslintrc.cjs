@@ -39,7 +39,7 @@ module.exports = {
     '@typescript-eslint/semi': 'off',
 
     //eslint-plugin-vue
-    'vue/-multi-word-component-names': 'off',
+    'vue/multi-word-component-names': 'off',
     'vue/script-setup-uses-vars': 'error',
     'vue/no-mutating-props': 'off',
     'vue/attribute-hyphenation': 'off',
