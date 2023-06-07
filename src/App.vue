@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import SvgIcon from '@/components/SvgIcon/index.vue'
 import { onMounted } from 'vue'
 import { reqLogin } from './api/user'
 onMounted(() => {
@@ -9,15 +8,6 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class="box">
-    <svg-icon width="30px" height="30px" name="copyright" color="red" />
-  </div>
-  <div><h1>1111</h1></div>
+  <router-view></router-view>
 </template>
-<style lang="scss">
-div {
-  h1 {
-    color: red;
-  }
-}
-</style>
+<style lang="scss"></style>
