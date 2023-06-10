@@ -40,6 +40,7 @@ module.exports = {
     'block-opening-brace-space-before': 'always', //大括号之前必须有一个空格或不能有空白符
     'value-no-vendor-prefix': null, // 关闭 属性值前缀 --webkit-box
     'property-no-vendor-prefix': null, // 关闭 属性前缀 -webkit-mask
+    'font-family-no-missing-generic-family-keyword': false,
     'selector-pseudo-class-no-unknown': [
       // 不允许未知的选择器
       true,
