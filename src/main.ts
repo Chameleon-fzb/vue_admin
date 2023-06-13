@@ -9,8 +9,11 @@ import 'virtual:svg-icons-register'
 import router from '@/router'
 //自定义插件对象,注册整个项目全局组件
 import gloalComponent from '@/components'
+import piain from '@/store'
 const app = createApp(App)
 app.use(gloalComponent)
+//注册仓库
+app.use(piain)
 //注册路由
 app.use(router)
 //全局引入elementplus
