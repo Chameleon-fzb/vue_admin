@@ -6,12 +6,16 @@ const router = createRouter({
   routes: constantRoutes,
 })
 // 路由权限
-router.beforeEach((to) => {
+router.beforeEach((to, from) => {
   const token = getToken()
-  if (to.path.startsWith('/home')) {
-    console.log('未登录')
-    if (!token) {
+  if (!token) {
+    if (to.path.startsWith('/home')) {
       return '/login'
+    }
+  } else {
+    if (to.path.startsWith('/login')) {
+      console.log('已登录,返回来时页面', from.path)
+      return from.path
     }
   }
 })

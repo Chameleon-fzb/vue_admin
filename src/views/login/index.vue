@@ -54,12 +54,17 @@ const loginForm = reactive({ username: '', password: '' })
 const login = async () => {
   // 登录
   console.log('login')
+  loading.value = true
   try {
     await useStore.userLogin(loginForm)
     $router.push('/')
+    loading.value = false
     ElNotification({ type: 'success', message: '登录成功' })
   } catch (err) {
     ElNotification({ type: 'error', message: (err as Error).message })
+    setTimeout(() => {
+      loading.value = false
+    }, 1500)
   }
 }
 </script>
