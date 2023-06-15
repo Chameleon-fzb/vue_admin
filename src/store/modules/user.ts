@@ -5,9 +5,10 @@ import { getToken, setToken } from '@/utils/user'
 import { reqLogin } from '@/api/user'
 //引入数据类型
 import type { loginFormData, loginResponseData } from '@/api/user/type'
+import type { UserState } from './types/type'
 //创建用户仓库
 export const useUserStore = defineStore('User', {
-  state: () => {
+  state: (): UserState => {
     return {
       token: getToken(),
     }
@@ -17,7 +18,7 @@ export const useUserStore = defineStore('User', {
     async userLogin(data: loginFormData) {
       const result: loginResponseData = await reqLogin(data)
       if (result.code === 200) {
-        const token = result.data.token
+        const token = result.data.token as string
         this.token = token
         setToken(token)
         return true
