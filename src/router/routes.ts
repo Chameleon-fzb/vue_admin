@@ -12,13 +12,13 @@ export const constantRoutes: RouteRecordRaw[] = [
   {
     //home
     path: '/',
-    component: () => import('@/views/home/index.vue'),
+    component: () => import('@/layout/index.vue'),
     name: 'Home',
     redirect: '/home',
     children: [
       {
         path: '/home',
-        component: () => import('@/views/home/index.vue'),
+        component: () => import('@/layout/index.vue'),
       },
     ],
   },

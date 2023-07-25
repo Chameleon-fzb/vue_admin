@@ -25,6 +25,7 @@
       //路径映射，相对于baseUrl
       "@/*": ["src/*"]
     }
+    // "allowJs": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
