@@ -1,15 +1,25 @@
 <template>
   <div class="layout_container">
-    <div class="layout_slider"><Logo /></div>
+    <div class="layout_slider">
+      <Logo />
+      <el-scrollbar class="scrollbar">
+        <el-menu default-active="1" class="el-menu-vertical-demo">
+          <MenuList :menuList="userStore.menuRoutes" />
+        </el-menu>
+      </el-scrollbar>
+    </div>
     <div class="layout_tabbar"></div>
     <div class="layout_main">
-      <p style="height: 1000px; background: yellowgreen">123</p>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Logo from './logo/index.vue'
+import Logo from './Logo/index.vue'
+import MenuList from './MenuList/index.vue'
+import { useUserStore } from '@/store'
+const userStore = useUserStore()
 </script>
 
 <style lang="scss" scoped>
@@ -19,7 +29,16 @@ import Logo from './logo/index.vue'
   .layout_slider {
     width: $base-menu-width;
     height: 100vh;
+    color: white;
     background: $base-menu-background;
+    .scrollbar {
+      width: 100%;
+      height: calc(100vh - $base-tabbar-height);
+      //去掉默认边框
+      .el-menu {
+        border-right: none;
+      }
+    }
   }
   .layout_tabbar {
     position: fixed;

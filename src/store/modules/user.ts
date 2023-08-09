@@ -6,11 +6,14 @@ import { reqLogin } from '@/api/user'
 //引入数据类型
 import type { loginFormData, loginResponseData } from '@/api/user/type'
 import type { UserState } from './types/type'
+//引入路由(常量路由)
+import { constantRoutes } from '@/router/routes'
 //创建用户仓库
 export const useUserStore = defineStore('User', {
   state: (): UserState => {
     return {
       token: getToken(),
+      menuRoutes: constantRoutes,
     }
   },
   actions: {
