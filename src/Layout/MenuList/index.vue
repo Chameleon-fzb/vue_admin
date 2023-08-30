@@ -56,17 +56,4 @@ export default {
   name: 'MenuList',
 }
 </script>
-<style lang="scss">
-.el-menu {
-  background-color: $base-menu-background;
-}
-.el-menu-item,
-.el-sub-menu__title {
-  color: white;
-}
-.el-menu-item:hover,
-.el-sub-menu__title:hover {
-  color: skyblue;
-  background-color: #002529;
-}
-</style>
+<style lang="scss"></style>

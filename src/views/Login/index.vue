@@ -114,6 +114,11 @@ const login = async () => {
   }
 }
 </script>
+<script>
+export default {
+  name: 'Login',
+}
+</script>
 
 <style scoped lang="scss">
 .login_container {
