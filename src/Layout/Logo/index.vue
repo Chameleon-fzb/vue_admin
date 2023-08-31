@@ -1,12 +1,14 @@
 <template>
   <div class="logo">
     <img :src="setting.logo" alt="" />
-    <p>{{ setting.title }}</p>
+    <p v-show="!settingStore.fold">{{ setting.title }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 import setting from '@/setting.ts'
+import { useLayoutSettingStore } from '@/store'
+const settingStore = useLayoutSettingStore()
 </script>
 <script lang="ts">
 export default {
@@ -29,6 +31,7 @@ export default {
   p {
     font-size: $base-logo-title-fontsize;
     margin-left: 10px;
+    white-space: nowrap;
   }
 }
 </style>

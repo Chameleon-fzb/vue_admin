@@ -1,6 +1,6 @@
 <template>
   <el-icon style="margin-right: 10px" @click="changeIcon">
-    <component :is="fold ? 'Fold' : 'Expand'"></component>
+    <component :is="!settingStore.fold ? 'Fold' : 'Expand'"></component>
   </el-icon>
   <el-breadcrumb separator-icon="ArrowRight">
     <el-breadcrumb-item
@@ -18,11 +18,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useLayoutSettingStore } from '@/store'
 import { useRoute } from 'vue-router'
-const fold = ref(false)
+const settingStore = useLayoutSettingStore()
 const changeIcon = () => {
-  fold.value = !fold.value
+  settingStore.fold = !settingStore.fold
 }
 const $route = useRoute()
 console.log($route)

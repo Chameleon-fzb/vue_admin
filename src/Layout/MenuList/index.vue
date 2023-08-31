@@ -16,8 +16,8 @@
     </template>
     <template v-if="item.children && item.children.length === 1">
       <el-menu-item
-        v-if="!item.meta.hidden"
-        :index="item.path"
+        v-if="!item.children[0].meta.hidden"
+        :index="item.children[0].path"
         @click="goRoute(item)"
       >
         <el-icon>
@@ -45,7 +45,8 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
 
-defineProps(['menuList'])
+const props = defineProps(['menuList'])
+console.log('menu', props.menuList)
 const $router = useRouter()
 const goRoute = (vc: any) => {
   $router.push(vc.path)
