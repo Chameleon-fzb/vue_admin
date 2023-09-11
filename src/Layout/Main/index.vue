@@ -1,12 +1,26 @@
 <template>
   <router-view v-slot="{ Component }">
     <transition name="fade">
-      <component :is="Component"></component>
+      <component :is="Component" v-if="flag"></component>
     </transition>
   </router-view>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { watch, ref, nextTick } from 'vue'
+import { useLayoutSettingStore } from '@/store'
+const settingStore = useLayoutSettingStore()
+const flag = ref(true)
+watch(
+  () => settingStore.refsh,
+  () => {
+    flag.value = false
+    nextTick(() => {
+      flag.value = true
+    })
+  }
+)
+</script>
 <script lang="ts">
 export default {
   name: 'LayoutMain',
